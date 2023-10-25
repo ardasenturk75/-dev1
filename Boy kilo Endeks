@@ -1,0 +1,34 @@
+def vucut_kitle_indeksi(boy_cm, kilo, cinsiyet):
+    boy_metre = boy_cm / 100  # Boyu metreye çevirin
+    vki = kilo / (boy_metre ** 2)
+
+    if cinsiyet == "y":
+        if vki < 20.7:
+            durum = "Zayıf (Düşük Vücut Kitle İndeksi)"
+        elif 20.7 <= vki < 26.4:
+            durum = "Normal (Sağlıklı Vücut Kitle İndeksi)"
+        elif 26.4 <= vki < 27.8:
+            durum = "Hafif Kilolu"
+        else:
+            durum = "Obez"
+    elif cinsiyet == "x":
+        if vki < 19.1:
+            durum = "Zayıf (Düşük Vücut Kitle İndeksi)"
+        elif 19.1 <= vki < 25.8:
+            durum = "Normal (Sağlıklı Vücut Kitle İndeksi)"
+        elif 25.8 <= vki < 27.3:
+            durum = "Hafif Kilolu"
+        else:
+            durum = "Obez"
+    else:
+        durum = "Cinsiyet belirtilmedi."
+
+    return vki, durum
+
+boy = float(input("Boy (cm cinsinden): "))
+kilo = float(input("Kilo (kg cinsinden): "))
+cinsiyet = input("Cinsiyet (y/x): ").lower()
+
+vki, durum = vucut_kitle_indeksi(boy, kilo, cinsiyet)
+print("Vücut Kitle İndeksi:", vki)
+print("Durum:", durum)
